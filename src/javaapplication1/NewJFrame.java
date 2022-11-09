@@ -78,7 +78,11 @@ public class NewJFrame extends javax.swing.JFrame {
 
         player3Name.setText("Player 3");
 
+        //bid submit button text
         playerBidSubmitButton.setText("Submit Bid");
+
+        //action listener for the submit bid button
+        //TODO make sure this submits both fields and clears it after submit
         playerBidSubmitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playerBidSubmitButtonActionPerformed(evt);
@@ -89,12 +93,23 @@ public class NewJFrame extends javax.swing.JFrame {
 
         challengePlayer.setText("Challenge");
 
+        //where the number of dice in the bid is inputted
+        //TODO link up with submit button
         playerBidNumberOfDieInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 playerBidNumberOfDieInputActionPerformed(evt);
             }
         });
 
+        //where the face of the bid die is inputted
+        //TODO link up with submit button
+        playerBidDieFaceInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerBidDieFaceInputActionPerformed(evt);
+            }
+        });
+
+        //From lines 113 to 211 is all just setting the background color of the dice
         player1Die1.setBackground(new java.awt.Color(255, 255, 255));
         player1Die1.setOpaque(true);
         player1Die1.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -196,16 +211,13 @@ public class NewJFrame extends javax.swing.JFrame {
         player4Die5.setPreferredSize(new java.awt.Dimension(80, 80));
 
         playerBidDieFaceInput.setToolTipText("");
-        playerBidDieFaceInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playerBidDieFaceInputActionPerformed(evt);
-            }
-        });
 
         playerBidDieFacejLabel.setText("Die Face");
 
         playerBidNumberOfDiejLabel.setText("Number of Die");
 
+        //menu text and button add
+        //TODO make all of these menu button do something
         hostGameMenuItem.setText("Host Game");
         jMenuBar1.add(hostGameMenuItem);
 
@@ -217,6 +229,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        //start of setting the layout of the gui
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -399,7 +412,8 @@ public class NewJFrame extends javax.swing.JFrame {
         );
 
         pack();
-    }
+    } //end of setting up gui components
+
 
     private void playerBidSubmitButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO
@@ -414,7 +428,8 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     /**
-     * @param args the command line arguments
+     *
+     * @param args
      */
     public static void main(String args[]) {
         try {
@@ -424,6 +439,8 @@ public class NewJFrame extends javax.swing.JFrame {
                     break;
                 }
             }
+
+            //catches some common errors or exceptions
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
