@@ -2,13 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package javaapplication1;
+//package javaapplication1;
 
+import javax.swing.JOptionPane;
 /**
  *
  * @author gavin
  */
 public class NewJFrame extends javax.swing.JFrame {
+    int lastDiceFaceAccepted = 0;
+    int lastNumDieAccepted = 0;
 
     /**
      * Creates new form NewJFrame
@@ -21,7 +24,6 @@ public class NewJFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
 
     private void initComponents() {
-
         player2Name = new javax.swing.JLabel();
         player1Name = new javax.swing.JLabel();
         player5Name = new javax.swing.JLabel();
@@ -29,7 +31,7 @@ public class NewJFrame extends javax.swing.JFrame {
         player3Name = new javax.swing.JLabel();
         playerBidSubmitButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        perviousBidTextDisplay = new javax.swing.JTextPane();
+        previousBidTextDisplay = new javax.swing.JTextPane();
         challengePlayer = new javax.swing.JButton();
         playerBidNumberOfDieInput = new javax.swing.JTextField();
         player1Die1 = new javax.swing.JLabel();
@@ -72,7 +74,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         player1Name.setText("Player 1");
 
-        player5Name.setText("player 5");
+        player5Name.setText("Player 5");
 
         player4Name.setText("Player 4");
 
@@ -85,11 +87,38 @@ public class NewJFrame extends javax.swing.JFrame {
         //TODO make sure this submits both fields and clears it after submit
         playerBidSubmitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                int diceFaceInput;
+                int numDieInput;
+
                 playerBidSubmitButtonActionPerformed(evt);
+
+                diceFaceInput = Integer.valueOf(playerBidDieFaceInput.getText());
+                numDieInput = Integer.valueOf(playerBidNumberOfDieInput.getText());
+
+                if ((diceFaceInput > lastDiceFaceAccepted) && (numDieInput == lastNumDieAccepted))
+                {
+                    lastDiceFaceAccepted= diceFaceInput;
+                    lastNumDieAccepted = numDieInput;
+                }
+                else if ((diceFaceInput == lastDiceFaceAccepted) && (numDieInput > lastNumDieAccepted))
+                {
+                    lastDiceFaceAccepted = diceFaceInput;
+                    lastNumDieAccepted = numDieInput;
+                }
+                else if ((diceFaceInput > lastDiceFaceAccepted) && (numDieInput > lastNumDieAccepted))
+                {
+                    lastDiceFaceAccepted = diceFaceInput;
+                    lastNumDieAccepted = numDieInput;
+                }
+                else JOptionPane.showMessageDialog(null, "The dice face/The number of dice has to be greater than the previous bid");
+
+                previousBidTextDisplay.setText("Your current bid is:\n\tDice Face = [ " + diceFaceInput + " ]\n\tNumber of Dice = [ " + numDieInput + " ]" + "\n\nLast accepted bid was:\n\tDice Face = [ " + lastDiceFaceAccepted + " ]\n\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
             }
         });
 
-        jScrollPane2.setViewportView(perviousBidTextDisplay);
+        jScrollPane2.setViewportView(previousBidTextDisplay);
+
+
 
         challengePlayer.setText("Challenge");
 
@@ -97,7 +126,10 @@ public class NewJFrame extends javax.swing.JFrame {
         //TODO link up with submit button
         playerBidNumberOfDieInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+
+
                 playerBidNumberOfDieInputActionPerformed(evt);
+
             }
         });
 
@@ -427,6 +459,7 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO
     }
 
+
     /**
      *
      * @param args
@@ -467,7 +500,8 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JMenu joinGameMenuItem;
-    private javax.swing.JTextPane perviousBidTextDisplay;
+
+    private javax.swing.JTextPane previousBidTextDisplay;
     private javax.swing.JLabel player1Die1;
     private javax.swing.JLabel player1Die2;
     private javax.swing.JLabel player1Die3;
@@ -503,5 +537,6 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField playerBidNumberOfDieInput;
     private javax.swing.JLabel playerBidNumberOfDiejLabel;
     private javax.swing.JButton playerBidSubmitButton;
+
     // End of variables declaration
 }
