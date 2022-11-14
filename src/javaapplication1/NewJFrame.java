@@ -4,6 +4,9 @@
  */
 package javaapplication1;
 
+import javax.swing.*;
+import java.awt.*;
+
 /**
  *
  * @author gavin
@@ -67,7 +70,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        //Sets text of player names above the dice
+        //Sets text of player names above the javaapplication1.dice
         player2Name.setText("Player 2");
 
         player1Name.setText("Player 1");
@@ -93,7 +96,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         challengePlayer.setText("Challenge");
 
-        //where the number of dice in the bid is inputted
+        //where the number of javaapplication1.dice in the bid is inputted
         //TODO link up with submit button
         playerBidNumberOfDieInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +112,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        //From lines 113 to 211 is all just setting the background color of the dice
+        //From lines 113 to 211 is all just setting the background color of the javaapplication1.dice
         player1Die1.setBackground(new java.awt.Color(255, 255, 255));
         player1Die1.setOpaque(true);
         player1Die1.setPreferredSize(new java.awt.Dimension(80, 80));
@@ -209,6 +212,45 @@ public class NewJFrame extends javax.swing.JFrame {
         player4Die5.setBackground(new java.awt.Color(255, 255, 255));
         player4Die5.setOpaque(true);
         player4Die5.setPreferredSize(new java.awt.Dimension(80, 80));
+
+
+        Dice rand = new Dice();
+
+        //gets pictures of javaapplication1.dice for player1 javaapplication1.dice
+        player1Die1.setIcon(rand.randomNumberDice());
+        player1Die2.setIcon(rand.randomNumberDice());
+        player1Die3.setIcon(rand.randomNumberDice());
+        player1Die4.setIcon(rand.randomNumberDice());
+        player1Die5.setIcon(rand.randomNumberDice());
+
+        //gets pictures of javaapplication1.dice for player2 javaapplication1.dice
+        player2Die1.setIcon(rand.randomNumberDice());
+        player2Die2.setIcon(rand.randomNumberDice());
+        player2Die3.setIcon(rand.randomNumberDice());
+        player2Die4.setIcon(rand.randomNumberDice());
+        player2Die5.setIcon(rand.randomNumberDice());
+
+        //gets pictures of javaapplication1.dice for player3 javaapplication1.dice
+        player3Die1.setIcon(rand.randomNumberDice());
+        player3Die2.setIcon(rand.randomNumberDice());
+        player3Die3.setIcon(rand.randomNumberDice());
+        player3Die4.setIcon(rand.randomNumberDice());
+        player3Die5.setIcon(rand.randomNumberDice());
+
+        //gets pictures of javaapplication1.dice for player4 javaapplication1.dice
+        player4Die1.setIcon(rand.randomNumberDice());
+        player4Die2.setIcon(rand.randomNumberDice());
+        player4Die3.setIcon(rand.randomNumberDice());
+        player4Die4.setIcon(rand.randomNumberDice());
+        player4Die5.setIcon(rand.randomNumberDice());
+
+        //gets pictures of javaapplication1.dice for player5 javaapplication1.dice
+        player5Die1.setIcon(rand.randomNumberDice());
+        player5Die2.setIcon(rand.randomNumberDice());
+        player5Die3.setIcon(rand.randomNumberDice());
+        player5Die4.setIcon(rand.randomNumberDice());
+        player5Die5.setIcon(rand.randomNumberDice());
+
 
         playerBidDieFaceInput.setToolTipText("");
 
