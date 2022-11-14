@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-//package javaapplication1;
+package javaapplication1;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
+
 /**
  *
  * @author Gavin, Lam, Connor, Camryn
@@ -244,44 +245,6 @@ public class NewJFrame extends javax.swing.JFrame {
         player4Die5.setPreferredSize(new java.awt.Dimension(80, 80));
 
 
-        Dice rand = new Dice();
-
-        //gets pictures of javaapplication1.dice for player1 javaapplication1.dice
-        player1Die1.setIcon(rand.randomNumberDice());
-        player1Die2.setIcon(rand.randomNumberDice());
-        player1Die3.setIcon(rand.randomNumberDice());
-        player1Die4.setIcon(rand.randomNumberDice());
-        player1Die5.setIcon(rand.randomNumberDice());
-
-        //gets pictures of javaapplication1.dice for player2 javaapplication1.dice
-        player2Die1.setIcon(rand.randomNumberDice());
-        player2Die2.setIcon(rand.randomNumberDice());
-        player2Die3.setIcon(rand.randomNumberDice());
-        player2Die4.setIcon(rand.randomNumberDice());
-        player2Die5.setIcon(rand.randomNumberDice());
-
-        //gets pictures of javaapplication1.dice for player3 javaapplication1.dice
-        player3Die1.setIcon(rand.randomNumberDice());
-        player3Die2.setIcon(rand.randomNumberDice());
-        player3Die3.setIcon(rand.randomNumberDice());
-        player3Die4.setIcon(rand.randomNumberDice());
-        player3Die5.setIcon(rand.randomNumberDice());
-
-        //gets pictures of javaapplication1.dice for player4 javaapplication1.dice
-        player4Die1.setIcon(rand.randomNumberDice());
-        player4Die2.setIcon(rand.randomNumberDice());
-        player4Die3.setIcon(rand.randomNumberDice());
-        player4Die4.setIcon(rand.randomNumberDice());
-        player4Die5.setIcon(rand.randomNumberDice());
-
-        //gets pictures of javaapplication1.dice for player5 javaapplication1.dice
-        player5Die1.setIcon(rand.randomNumberDice());
-        player5Die2.setIcon(rand.randomNumberDice());
-        player5Die3.setIcon(rand.randomNumberDice());
-        player5Die4.setIcon(rand.randomNumberDice());
-        player5Die5.setIcon(rand.randomNumberDice());
-
-
         playerBidDieFaceInput.setToolTipText("");
 
         playerBidDieFacejLabel.setText("Die Face");
@@ -497,6 +460,50 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void playerBidDieFaceInputActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO
+    }
+
+    public void setDiceImage() {
+        Dice rand = new Dice();
+
+        //gets pictures of javaapplication1.dice for player1 javaapplication1.dice
+        player1Die1.setIcon(rand.randomNumberDice());
+        player1Die2.setIcon(rand.randomNumberDice());
+        player1Die3.setIcon(rand.randomNumberDice());
+        player1Die4.setIcon(rand.randomNumberDice());
+        player1Die5.setIcon(rand.randomNumberDice());
+
+        //gets pictures of javaapplication1.dice for player2 javaapplication1.dice
+        player2Die1.setIcon(rand.randomNumberDice());
+        player2Die2.setIcon(rand.randomNumberDice());
+        player2Die3.setIcon(rand.randomNumberDice());
+        player2Die4.setIcon(rand.randomNumberDice());
+        player2Die5.setIcon(rand.randomNumberDice());
+
+        //gets pictures of javaapplication1.dice for player3 javaapplication1.dice
+        player3Die1.setIcon(rand.randomNumberDice());
+        player3Die2.setIcon(rand.randomNumberDice());
+        player3Die3.setIcon(rand.randomNumberDice());
+        player3Die4.setIcon(rand.randomNumberDice());
+        player3Die5.setIcon(rand.randomNumberDice());
+
+        //gets pictures of javaapplication1.dice for player4 javaapplication1.dice
+        player4Die1.setIcon(rand.randomNumberDice());
+        player4Die2.setIcon(rand.randomNumberDice());
+        player4Die3.setIcon(rand.randomNumberDice());
+        player4Die4.setIcon(rand.randomNumberDice());
+        player4Die5.setIcon(rand.randomNumberDice());
+
+        //gets pictures of javaapplication1.dice for player5 javaapplication1.dice
+        player5Die1.setIcon(rand.randomNumberDice());
+        player5Die2.setIcon(rand.randomNumberDice());
+        player5Die3.setIcon(rand.randomNumberDice());
+        player5Die4.setIcon(rand.randomNumberDice());
+        player5Die5.setIcon(rand.randomNumberDice());
+    }
+    public int getDieNumber(ImageIcon image) {
+
+
+        return 0;
     }
 
 
