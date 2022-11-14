@@ -4,7 +4,10 @@
  */
 package javaapplication1;
 
+import java.util.HashMap;
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Map;
 
 /**
  *
@@ -502,11 +505,92 @@ public class NewJFrame extends javax.swing.JFrame {
         player5Die4.setIcon(rand.randomNumberDice());
         player5Die5.setIcon(rand.randomNumberDice());
     }
-    public int getDieNumber(ImageIcon image) {
+    public Map<String, Integer> getDieNumber() {
+
+        ImageIcon die1 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
+                "src\\javaapplication1\\dice\\Die1.png");
+        ImageIcon die2 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
+                "src\\javaapplication1\\dice\\Die2.png");
+        ImageIcon die3 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
+                "src\\javaapplication1\\dice\\Die3.png");
+        ImageIcon die4 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
+                "src\\javaapplication1\\dice\\Die4.png");
+        ImageIcon die5 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
+                "src\\javaapplication1\\dice\\Die5.png");
+        ImageIcon die6 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
+                "src\\javaapplication1\\dice\\Die6.png");
+
+        Icon[] arr = new Icon[25];
+        Map<String, Integer> dieCount = new HashMap<String, Integer>();
+        int dieFace1 = 0;
+        int dieFace2 = 0;
+        int dieFace3 = 0;
+        int dieFace4 = 0;
+        int dieFace5 = 0;
+        int dieFace6 = 0;
 
 
+        //gets pictures of javaapplication1.dice for player1 javaapplication1.dice
+        arr[0] = player1Die1.getIcon();
+        arr[1] = player1Die2.getIcon();
+        arr[2] = player1Die3.getIcon();
+        arr[3] = player1Die4.getIcon();
+        arr[4] = player1Die5.getIcon();
 
-        return 0;
+        //gets pictures of javaapplication1.dice for player2 javaapplication1.dice
+        arr[5] = player2Die1.getIcon();
+        arr[6] = player2Die2.getIcon();
+        arr[7] = player2Die3.getIcon();
+        arr[8] = player2Die4.getIcon();
+        arr[9] = player2Die5.getIcon();
+
+        //gets pictures of javaapplication1.dice for player3 javaapplication1.dice
+        arr[10] = player3Die1.getIcon();
+        arr[11] = player3Die2.getIcon();
+        arr[12] = player3Die3.getIcon();
+        arr[13] = player3Die4.getIcon();
+        arr[14] = player3Die5.getIcon();
+
+        //gets pictures of javaapplication1.dice for player4 javaapplication1.dice
+        arr[15] = player4Die1.getIcon();
+        arr[16] = player4Die2.getIcon();
+        arr[17] = player4Die3.getIcon();
+        arr[18] = player4Die4.getIcon();
+        arr[19] = player4Die5.getIcon();
+
+        //gets pictures of javaapplication1.dice for player5 javaapplication1.dice
+        arr[20] = player5Die1.getIcon();
+        arr[21] = player5Die2.getIcon();
+        arr[22] = player5Die3.getIcon();
+        arr[23] = player5Die4.getIcon();
+        arr[24] = player5Die5.getIcon();
+
+        Player dice = new Player();
+
+        for(int x = 0; x <= 24; x++) {
+
+            if (arr[x] == die1)
+                dieFace1++;
+            else if (arr[x] == die2)
+                dieFace2++;
+            else if (arr[x] == die3)
+                dieFace3++;
+            else if (arr[x] == die4)
+                dieFace4++;
+            else if (arr[x] == die5)
+                dieFace5++;
+            else if (arr[x] == die6)
+                dieFace6++;
+        }
+
+        dieCount.put("dieFace1",dieFace1);
+        dieCount.put("dieFace2",dieFace2);
+        dieCount.put("dieFace3",dieFace3);
+        dieCount.put("dieFace4",dieFace4);
+        dieCount.put("dieFace5",dieFace5);
+        dieCount.put("dieFace6",dieFace6);
+
+        return dieCount;
     }
 
 
