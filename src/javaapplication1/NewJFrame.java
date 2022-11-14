@@ -244,6 +244,8 @@ public class NewJFrame extends javax.swing.JFrame {
         player4Die5.setOpaque(true);
         player4Die5.setPreferredSize(new java.awt.Dimension(80, 80));
 
+        //puts dice image up
+        setDiceImage();
 
         playerBidDieFaceInput.setToolTipText("");
 
@@ -501,6 +503,7 @@ public class NewJFrame extends javax.swing.JFrame {
         player5Die5.setIcon(rand.randomNumberDice());
     }
     public int getDieNumber(ImageIcon image) {
+
 
 
         return 0;
