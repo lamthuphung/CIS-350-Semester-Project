@@ -1,4 +1,7 @@
+import javaapplication1.NewJFrame;
+
 public class MainMethod {
+
 
     /**
      *Honestly im not sure where to start so im just going
@@ -64,7 +67,5 @@ There should be two  GUI screens  1 is the one that we have already created
  later we might add various options to this home screen such as
  AI difficulty or javaapplication1.dice size
 */
-
-
 
 }

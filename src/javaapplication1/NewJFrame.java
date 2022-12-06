@@ -4,11 +4,13 @@
  */
 
 import javax.swing.*;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.Map;
 import java.awt.event.ActionListener;
 import java.lang.Math;
+
 
 
 /**
@@ -27,6 +29,7 @@ public class NewJFrame extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     public NewJFrame() {
+        //TODO
         initComponents();
     }
 
@@ -34,6 +37,7 @@ public class NewJFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
 
     private void initComponents() {
+
 
         player2Name = new javax.swing.JLabel();
         player1Name = new javax.swing.JLabel();
@@ -124,6 +128,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     lastDiceFaceAccepted = diceFaceInput;
                     lastNumDieAccepted = numDieInput;
                 }
+
                 else JOptionPane.showMessageDialog(null, "The dice face or the number of dice has to be greater than the previous bid");
 
                 /**
@@ -143,8 +148,14 @@ public class NewJFrame extends javax.swing.JFrame {
                         System.out.println("AI [" + (i+2) + "]" + " played bid: Dice Face = [ " + lastDiceFaceAccepted + " ]\n\t\t\t\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
                     }
                 }
+                else JOptionPane.showMessageDialog(null,
+                            "The dice face/The number of dice has to be greater than the previous bid");
 
-                previousBidTextDisplay.setText("Your current bid is:\n\tDice Face = [ " + diceFaceInput + " ]\n\tNumber of Dice = [ " + numDieInput + " ]" + "\n\nLast accepted bid was:\n\tDice Face = [ " + lastDiceFaceAccepted + " ]\n\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
+
+                previousBidTextDisplay.setText("Your current bid is:\n\tDice Face = [ " + diceFaceInput +
+                        " ]\n\tNumber of Dice = [ " + numDieInput + " ]" + "\n\nLast accepted bid was" +
+                        ":\n\tDice Face = [ " + lastDiceFaceAccepted + " ]\n\tNumber of Dice = [ "
+                        + lastNumDieAccepted + " ]");
             }
         });
 
@@ -279,7 +290,7 @@ public class NewJFrame extends javax.swing.JFrame {
         player4Die5.setPreferredSize(new java.awt.Dimension(80, 80));
 
         //puts dice image up
-        setDiceImage();
+
 
         playerBidDieFaceInput.setToolTipText("");
 
@@ -483,6 +494,7 @@ public class NewJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setVisible(true);
     } //end of setting up gui components
 
 
@@ -499,133 +511,12 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
 
-    public void setDiceImage() {
-        Dice rand = new Dice();
-
-        //gets pictures of javaapplication1.dice for player1 javaapplication1.dice
-        player1Die1.setIcon(rand.randomNumberDice());
-        player1Die2.setIcon(rand.randomNumberDice());
-        player1Die3.setIcon(rand.randomNumberDice());
-        player1Die4.setIcon(rand.randomNumberDice());
-        player1Die5.setIcon(rand.randomNumberDice());
-
-        //gets pictures of javaapplication1.dice for player2 javaapplication1.dice
-        player2Die1.setIcon(rand.randomNumberDice());
-        player2Die2.setIcon(rand.randomNumberDice());
-        player2Die3.setIcon(rand.randomNumberDice());
-        player2Die4.setIcon(rand.randomNumberDice());
-        player2Die5.setIcon(rand.randomNumberDice());
-
-        //gets pictures of javaapplication1.dice for player3 javaapplication1.dice
-        player3Die1.setIcon(rand.randomNumberDice());
-        player3Die2.setIcon(rand.randomNumberDice());
-        player3Die3.setIcon(rand.randomNumberDice());
-        player3Die4.setIcon(rand.randomNumberDice());
-        player3Die5.setIcon(rand.randomNumberDice());
-
-        //gets pictures of javaapplication1.dice for player4 javaapplication1.dice
-        player4Die1.setIcon(rand.randomNumberDice());
-        player4Die2.setIcon(rand.randomNumberDice());
-        player4Die3.setIcon(rand.randomNumberDice());
-        player4Die4.setIcon(rand.randomNumberDice());
-        player4Die5.setIcon(rand.randomNumberDice());
-
-        //gets pictures of javaapplication1.dice for player5 javaapplication1.dice
-        player5Die1.setIcon(rand.randomNumberDice());
-        player5Die2.setIcon(rand.randomNumberDice());
-        player5Die3.setIcon(rand.randomNumberDice());
-        player5Die4.setIcon(rand.randomNumberDice());
-        player5Die5.setIcon(rand.randomNumberDice());
-    }
-
-    public Map<String, Integer> getDieNumber() {
-
-        ImageIcon die1 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die1.png");
-        ImageIcon die2 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die2.png");
-        ImageIcon die3 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die3.png");
-        ImageIcon die4 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die4.png");
-        ImageIcon die5 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die5.png");
-        ImageIcon die6 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die6.png");
-
-        Icon[] arr = new Icon[25];
-        HashMap<String, Integer> dieCount = new HashMap<String, Integer>();
-        int dieFace1 = 0;
-        int dieFace2 = 0;
-        int dieFace3 = 0;
-        int dieFace4 = 0;
-        int dieFace5 = 0;
-        int dieFace6 = 0;
-
-
-        //gets pictures of javaapplication1.dice for player1 javaapplication1.dice
-        arr[0] = player1Die1.getIcon();
-        arr[1] = player1Die2.getIcon();
-        arr[2] = player1Die3.getIcon();
-        arr[3] = player1Die4.getIcon();
-        arr[4] = player1Die5.getIcon();
-
-        //gets pictures of javaapplication1.dice for player2 javaapplication1.dice
-        arr[5] = player2Die1.getIcon();
-        arr[6] = player2Die2.getIcon();
-        arr[7] = player2Die3.getIcon();
-        arr[8] = player2Die4.getIcon();
-        arr[9] = player2Die5.getIcon();
-
-        //gets pictures of javaapplication1.dice for player3 javaapplication1.dice
-        arr[10] = player3Die1.getIcon();
-        arr[11] = player3Die2.getIcon();
-        arr[12] = player3Die3.getIcon();
-        arr[13] = player3Die4.getIcon();
-        arr[14] = player3Die5.getIcon();
-
-        //gets pictures of javaapplication1.dice for player4 javaapplication1.dice
-        arr[15] = player4Die1.getIcon();
-        arr[16] = player4Die2.getIcon();
-        arr[17] = player4Die3.getIcon();
-        arr[18] = player4Die4.getIcon();
-        arr[19] = player4Die5.getIcon();
-
-        //gets pictures of javaapplication1.dice for player5 javaapplication1.dice
-        arr[20] = player5Die1.getIcon();
-        arr[21] = player5Die2.getIcon();
-        arr[22] = player5Die3.getIcon();
-        arr[23] = player5Die4.getIcon();
-        arr[24] = player5Die5.getIcon();
-
-        Player dice = new Player();
-
-        for(int x = 0; x <= 24; x++) {
-            if (arr[x] == die1) dieFace1++;
-            else if (arr[x] == die2) dieFace2++;
-            else if (arr[x] == die3) dieFace3++;
-            else if (arr[x] == die4) dieFace4++;
-            else if (arr[x] == die5) dieFace5++;
-            else if (arr[x] == die6) dieFace6++;
-            System.out.println(arr[x]);
-        }
-
-        dieCount.put("dieFace1",dieFace1);
-        dieCount.put("dieFace2",dieFace2);
-        dieCount.put("dieFace3",dieFace3);
-        dieCount.put("dieFace4",dieFace4);
-        dieCount.put("dieFace5",dieFace5);
-        dieCount.put("dieFace6",dieFace6);
-
-        System.out.println(dieFace1);
-        System.out.println(dieFace2);
-        System.out.println(dieFace3);
-        System.out.println(dieFace4);
-        System.out.println(dieFace5);
-        System.out.println(dieFace6);
-
-        return dieCount;
-    }
-
 
     /**
      *
      * @param args
      */
+
     public static void main(String args[]) {
         int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0;
 
@@ -658,6 +549,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     }
 
+
     // Variables declaration - do not modify
     private javax.swing.JButton challengePlayer;
     private javax.swing.JMenu exitGameMenuItem;
@@ -667,11 +559,11 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JMenu joinGameMenuItem;
 
     private javax.swing.JTextPane previousBidTextDisplay;
-    private javax.swing.JLabel player1Die1;
-    private javax.swing.JLabel player1Die2;
-    private javax.swing.JLabel player1Die3;
-    private javax.swing.JLabel player1Die4;
-    private javax.swing.JLabel player1Die5;
+    public javax.swing.JLabel player1Die1;
+    public javax.swing.JLabel player1Die2;
+    public javax.swing.JLabel player1Die3;
+    public javax.swing.JLabel player1Die4;
+    public javax.swing.JLabel player1Die5;
     private javax.swing.JLabel player1Name;
     private javax.swing.JLabel player2Die1;
     private javax.swing.JLabel player2Die2;
@@ -706,3 +598,4 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // End of variables declaration
 }
+
