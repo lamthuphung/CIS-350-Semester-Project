@@ -2,9 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package javaapplication1;
 
 import javax.swing.*;
+
+import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Map;
+import java.awt.event.ActionListener;
+import java.lang.Math;
+
+
 
 /**
  *
@@ -13,6 +20,10 @@ import javax.swing.*;
 public class NewJFrame extends javax.swing.JFrame {
     int lastDiceFaceAccepted = 0;
     int lastNumDieAccepted = 0;
+    int min = 0;
+    int max = 10;
+    int a = 0;
+    int Inc_Choice = 0;
 
     /**
      * Creates new form NewJFrame
@@ -34,6 +45,7 @@ public class NewJFrame extends javax.swing.JFrame {
         player4Name = new javax.swing.JLabel();
         player3Name = new javax.swing.JLabel();
         playerBidSubmitButton = new javax.swing.JButton();
+        nextTurnButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         previousBidTextDisplay = new javax.swing.JTextPane();
         challengePlayer = new javax.swing.JButton();
@@ -86,6 +98,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
         //bid submit button text
         playerBidSubmitButton.setText("Submit Bid");
+        nextTurnButton.setText("Next Turn");
 
         //action listener for the submit bid button
         //TODO make sure this submits both fields and clears it after submit
@@ -93,6 +106,7 @@ public class NewJFrame extends javax.swing.JFrame {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 int diceFaceInput;
                 int numDieInput;
+
 
                 playerBidSubmitButtonActionPerformed(evt);
 
@@ -114,8 +128,29 @@ public class NewJFrame extends javax.swing.JFrame {
                     lastDiceFaceAccepted = diceFaceInput;
                     lastNumDieAccepted = numDieInput;
                 }
+
+                else JOptionPane.showMessageDialog(null, "The dice face or the number of dice has to be greater than the previous bid");
+
+                /**
+                 * AI automatically make bet after the user press the button
+                 */
+                for (int i = 0; i <= 3; i++) {
+                    a = (int) (Math.random() * (max - min + 1) + min);
+                    if (a % 2 == 0) Inc_Choice = 0;
+                    else Inc_Choice = 1;
+
+                    if (Inc_Choice == 0) {
+                        lastDiceFaceAccepted++;
+                        System.out.println("AI [" + (i+2) + "]" + " played bid: Dice Face = [ " + lastDiceFaceAccepted + " ]\n\t\t\t\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
+                    }
+                    else if (Inc_Choice == 1) {
+                        lastNumDieAccepted++;
+                        System.out.println("AI [" + (i+2) + "]" + " played bid: Dice Face = [ " + lastDiceFaceAccepted + " ]\n\t\t\t\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
+                    }
+                }
                 else JOptionPane.showMessageDialog(null,
                             "The dice face/The number of dice has to be greater than the previous bid");
+
 
                 previousBidTextDisplay.setText("Your current bid is:\n\tDice Face = [ " + diceFaceInput +
                         " ]\n\tNumber of Dice = [ " + numDieInput + " ]" + "\n\nLast accepted bid was" +
@@ -125,8 +160,6 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         jScrollPane2.setViewportView(previousBidTextDisplay);
-
-
 
         challengePlayer.setText("Challenge");
 
@@ -149,8 +182,14 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
+        nextTurnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerBidDieFaceInputActionPerformed(evt);
+            }
+        });
+
         //From lines 113 to 211 is all just setting the background color of the dice
-        player1Die1.setBackground(new java.awt.Color(255, 255, 255));
+        player1Die1.setBackground(new java.awt.Color(255, 43, 43));
         player1Die1.setOpaque(true);
         player1Die1.setPreferredSize(new java.awt.Dimension(80, 80));
 
@@ -471,83 +510,45 @@ public class NewJFrame extends javax.swing.JFrame {
         // TODO
     }
 
-    public void setDiceImage() {
-        Dice rand = new Dice();
-
-        //gets pictures of javaapplication1.dice for player1 javaapplication1.dice
-//        player1Die1.setIcon(rand.DicePhoto());
-//        player1Die2.setIcon(rand.DicePhoto());
-//        player1Die3.setIcon(rand.DicePhoto());
-//        player1Die4.setIcon(rand.DicePhoto());
-//        player1Die5.setIcon(rand.DicePhoto());
-
-//        //gets pictures of javaapplication1.dice for player2 javaapplication1.dice
-//        player2Die1.setIcon(rand.randomNumberDice());
-//        player2Die2.setIcon(rand.randomNumberDice());
-//        player2Die3.setIcon(rand.randomNumberDice());
-//        player2Die4.setIcon(rand.randomNumberDice());
-//        player2Die5.setIcon(rand.randomNumberDice());
-//
-//        //gets pictures of javaapplication1.dice for player3 javaapplication1.dice
-//        player3Die1.setIcon(rand.randomNumberDice());
-//        player3Die2.setIcon(rand.randomNumberDice());
-//        player3Die3.setIcon(rand.randomNumberDice());
-//        player3Die4.setIcon(rand.randomNumberDice());
-//        player3Die5.setIcon(rand.randomNumberDice());
-//
-//        //gets pictures of javaapplication1.dice for player4 javaapplication1.dice
-//        player4Die1.setIcon(rand.randomNumberDice());
-//        player4Die2.setIcon(rand.randomNumberDice());
-//        player4Die3.setIcon(rand.randomNumberDice());
-//        player4Die4.setIcon(rand.randomNumberDice());
-//        player4Die5.setIcon(rand.randomNumberDice());
-//
-//        //gets pictures of javaapplication1.dice for player5 javaapplication1.dice
-//        player5Die1.setIcon(rand.randomNumberDice());
-//        player5Die2.setIcon(rand.randomNumberDice());
-//        player5Die3.setIcon(rand.randomNumberDice());
-//        player5Die4.setIcon(rand.randomNumberDice());
-//        player5Die5.setIcon(rand.randomNumberDice());
-
-    }
 
 
     /**
      *
      * @param args
      */
-//    public static void main(String args[]) {
-//
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//
-//            //catches some common errors or exceptions
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new NewJFrame().setVisible(true);
-//
-//            }
-//
-//        });
-//
-//    }
+
+    public static void main(String args[]) {
+        int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0;
+
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+
+            //catches some common errors or exceptions
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new NewJFrame().setVisible(true);
+            }
+        });
+
+    }
+
 
     // Variables declaration - do not modify
     private javax.swing.JButton challengePlayer;
@@ -593,6 +594,7 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JTextField playerBidNumberOfDieInput;
     private javax.swing.JLabel playerBidNumberOfDiejLabel;
     private javax.swing.JButton playerBidSubmitButton;
+    private javax.swing.JButton nextTurnButton;
 
     // End of variables declaration
 }
