@@ -1,8 +1,3 @@
-package javaapplication1;/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 import javax.swing.*;
 
 import java.util.HashMap;
@@ -24,6 +19,7 @@ public class NewJFrame extends javax.swing.JFrame {
     int max = 10;
     int a = 0;
     int Inc_Choice = 0;
+    int AI_order = 0;
 
     /**
      * Creates new form NewJFrame
@@ -37,8 +33,6 @@ public class NewJFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
 
     private void initComponents() {
-
-
         player2Name = new javax.swing.JLabel();
         player1Name = new javax.swing.JLabel();
         player5Name = new javax.swing.JLabel();
@@ -98,7 +92,31 @@ public class NewJFrame extends javax.swing.JFrame {
 
         //bid submit button text
         playerBidSubmitButton.setText("Submit Bid");
-        nextTurnButton.setText("Next Turn");
+        nextTurnButton.setText("Next");
+
+        nextTurnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                playerBidDieFaceInputActionPerformed(evt);
+                /**
+                 * AI automatically make bet after the user press the button
+                 */
+                a = (int) (Math.random() * (max - min + 1) + min);
+                if (a % 2 == 0) Inc_Choice = 0;
+                else Inc_Choice = 1;
+
+                if (Inc_Choice == 0) {
+                    lastDiceFaceAccepted++;
+                    System.out.println("AI [" + (AI_order+2) + "]" + " played bid: Dice Face = [ " + lastDiceFaceAccepted + " ]\n\t\t\t\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
+                }
+                else if (Inc_Choice == 1) {
+                    lastNumDieAccepted++;
+                    System.out.println("AI [" + (AI_order+2) + "]" + " played bid: Dice Face = [ " + lastDiceFaceAccepted + " ]\n\t\t\t\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
+                }
+
+                AI_order++;
+                if (AI_order == 4) AI_order = 0;
+            }
+        });
 
         //action listener for the submit bid button
         //TODO make sure this submits both fields and clears it after submit
@@ -131,26 +149,6 @@ public class NewJFrame extends javax.swing.JFrame {
 
                 else JOptionPane.showMessageDialog(null, "The dice face or the number of dice has to be greater than the previous bid");
 
-                /**
-                 * AI automatically make bet after the user press the button
-                 */
-                for (int i = 0; i <= 3; i++) {
-                    a = (int) (Math.random() * (max - min + 1) + min);
-                    if (a % 2 == 0) Inc_Choice = 0;
-                    else Inc_Choice = 1;
-
-                    if (Inc_Choice == 0) {
-                        lastDiceFaceAccepted++;
-                        System.out.println("AI [" + (i+2) + "]" + " played bid: Dice Face = [ " + lastDiceFaceAccepted + " ]\n\t\t\t\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
-                    }
-                    else if (Inc_Choice == 1) {
-                        lastNumDieAccepted++;
-                        System.out.println("AI [" + (i+2) + "]" + " played bid: Dice Face = [ " + lastDiceFaceAccepted + " ]\n\t\t\t\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
-                    }
-                }
-
-
-
                 previousBidTextDisplay.setText("Your current bid is:\n\tDice Face = [ " + diceFaceInput +
                         " ]\n\tNumber of Dice = [ " + numDieInput + " ]" + "\n\nLast accepted bid was" +
                         ":\n\tDice Face = [ " + lastDiceFaceAccepted + " ]\n\tNumber of Dice = [ "
@@ -166,10 +164,7 @@ public class NewJFrame extends javax.swing.JFrame {
         //TODO link up with submit button
         playerBidNumberOfDieInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-
-
                 playerBidNumberOfDieInputActionPerformed(evt);
-
             }
         });
 
@@ -181,14 +176,8 @@ public class NewJFrame extends javax.swing.JFrame {
             }
         });
 
-        nextTurnButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playerBidDieFaceInputActionPerformed(evt);
-            }
-        });
-
         //From lines 113 to 211 is all just setting the background color of the dice
-        player1Die1.setBackground(new java.awt.Color(255, 255, 255, 0));
+        player1Die1.setBackground(new java.awt.Color(255, 255, 255));
         player1Die1.setOpaque(true);
         player1Die1.setPreferredSize(new java.awt.Dimension(80, 80));
 
@@ -289,8 +278,6 @@ public class NewJFrame extends javax.swing.JFrame {
         player4Die5.setPreferredSize(new java.awt.Dimension(80, 80));
 
         //puts dice image up
-
-
         playerBidDieFaceInput.setToolTipText("");
 
         playerBidDieFacejLabel.setText("Die Face");
@@ -353,6 +340,8 @@ public class NewJFrame extends javax.swing.JFrame {
                                                 .addGap(355, 355, 355)
                                                 .addComponent(challengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(131, 131, 131)
+                                                .addComponent(nextTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(20, 20, 20)
                                                 .addComponent(player1Die3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -488,11 +477,16 @@ public class NewJFrame extends javax.swing.JFrame {
                                                 .addGap(27, 27, 27))
                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(nextTurnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(37, 37, 37))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(challengePlayer, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(37, 37, 37))))
         );
 
-
+        pack();
+        setVisible(true);
     } //end of setting up gui components
 
 
@@ -561,38 +555,37 @@ public class NewJFrame extends javax.swing.JFrame {
     public javax.swing.JLabel player1Die3;
     public javax.swing.JLabel player1Die4;
     public javax.swing.JLabel player1Die5;
-    private javax.swing.JLabel player1Name;
-    private javax.swing.JLabel player2Die1;
-    private javax.swing.JLabel player2Die2;
-    private javax.swing.JLabel player2Die3;
-    private javax.swing.JLabel player2Die4;
-    private javax.swing.JLabel player2Die5;
-    private javax.swing.JLabel player2Name;
-    private javax.swing.JLabel player3Die1;
-    private javax.swing.JLabel player3Die2;
-    private javax.swing.JLabel player3Die3;
-    private javax.swing.JLabel player3Die4;
-    private javax.swing.JLabel player3Die5;
-    private javax.swing.JLabel player3Name;
-    private javax.swing.JLabel player4Die1;
-    private javax.swing.JLabel player4Die2;
-    private javax.swing.JLabel player4Die3;
-    private javax.swing.JLabel player4Die4;
-    private javax.swing.JLabel player4Die5;
-    private javax.swing.JLabel player4Name;
-    private javax.swing.JLabel player5Die1;
-    private javax.swing.JLabel player5Die2;
-    private javax.swing.JLabel player5Die3;
-    private javax.swing.JLabel player5Die4;
-    private javax.swing.JLabel player5Die5;
-    private javax.swing.JLabel player5Name;
-    private javax.swing.JTextField playerBidDieFaceInput;
-    private javax.swing.JLabel playerBidDieFacejLabel;
-    private javax.swing.JTextField playerBidNumberOfDieInput;
-    private javax.swing.JLabel playerBidNumberOfDiejLabel;
-    private javax.swing.JButton playerBidSubmitButton;
-    private javax.swing.JButton nextTurnButton;
+    public javax.swing.JLabel player1Name;
+    public javax.swing.JLabel player2Die1;
+    public javax.swing.JLabel player2Die2;
+    public javax.swing.JLabel player2Die3;
+    public javax.swing.JLabel player2Die4;
+    public javax.swing.JLabel player2Die5;
+    public javax.swing.JLabel player2Name;
+    public javax.swing.JLabel player3Die1;
+    public javax.swing.JLabel player3Die2;
+    public javax.swing.JLabel player3Die3;
+    public javax.swing.JLabel player3Die4;
+    public javax.swing.JLabel player3Die5;
+    public javax.swing.JLabel player3Name;
+    public javax.swing.JLabel player4Die1;
+    public javax.swing.JLabel player4Die2;
+    public javax.swing.JLabel player4Die3;
+    public javax.swing.JLabel player4Die4;
+    public javax.swing.JLabel player4Die5;
+    public javax.swing.JLabel player4Name;
+    public javax.swing.JLabel player5Die1;
+    public javax.swing.JLabel player5Die2;
+    public javax.swing.JLabel player5Die3;
+    public javax.swing.JLabel player5Die4;
+    public javax.swing.JLabel player5Die5;
+    public javax.swing.JLabel player5Name;
+    public javax.swing.JTextField playerBidDieFaceInput;
+    public javax.swing.JLabel playerBidDieFacejLabel;
+    public javax.swing.JTextField playerBidNumberOfDieInput;
+    public javax.swing.JLabel playerBidNumberOfDiejLabel;
+    public javax.swing.JButton playerBidSubmitButton;
+    public javax.swing.JButton nextTurnButton;
 
     // End of variables declaration
 }
-
