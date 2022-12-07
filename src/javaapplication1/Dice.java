@@ -1,5 +1,3 @@
-package javaapplication1;
-
 import javax.swing.*;
 
 public class Dice extends NewJFrame{
@@ -15,20 +13,12 @@ public class Dice extends NewJFrame{
      * @return - random value from 1 - 6
      */
     public Icon[] DicePhoto() {
-
-
-        ImageIcon die1 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-                "src\\javaapplication1\\dice\\Die1.png");
-        ImageIcon die2 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-                "src\\javaapplication1\\dice\\Die2.png");
-        ImageIcon die3 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-                "src\\javaapplication1\\dice\\Die3.png");
-        ImageIcon die4 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-                "src\\javaapplication1\\dice\\Die4.png");
-        ImageIcon die5 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-                "src\\javaapplication1\\dice\\Die5.png");
-        ImageIcon die6 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-                "src\\javaapplication1\\dice\\Die6.png");
+        ImageIcon die1 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die1.png");
+        ImageIcon die2 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die2.png");
+        ImageIcon die3 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die3.png");
+        ImageIcon die4 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die4.png");
+        ImageIcon die5 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die5.png");
+        ImageIcon die6 = new ImageIcon("C:\\Users\\Lam Thu Phung\\IdeaProjects\\LiarDice_GUI\\src\\main\\java\\Die6.png");
 
         getDieNumber();
         Icon[] picDie = new Icon[25];
@@ -91,46 +81,33 @@ public class Dice extends NewJFrame{
         player1Die3.setIcon(DicePic[2]);
         player1Die4.setIcon(DicePic[3]);
         player1Die5.setIcon(DicePic[4]);
-        //gets pictures of javaapplication1.dice for player1 javaapplication1.dice
-//        GUI.player1Die1 = new JLabel(new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-//                "src\\javaapplication1\\dice\\Die1.png"));
-//        GUI.player1Die2 = new JLabel(new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-//                "src\\javaapplication1\\dice\\Die1.png"));
-//        GUI.player1Die3 = new JLabel(new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-//                "src\\javaapplication1\\dice\\Die1.png"));
-//        GUI.player1Die4 = new JLabel(new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-//                "src\\javaapplication1\\dice\\Die1.png"));
-//        GUI.player1Die5 = new JLabel(new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
-//                "src\\javaapplication1\\dice\\Die1.png"));
 
 //        //gets pictures of javaapplication1.dice for player2 javaapplication1.dice
-//        player2Die1.setIcon(rand.randomNumberDice());
-//        player2Die2.setIcon(rand.randomNumberDice());
-//        player2Die3.setIcon(rand.randomNumberDice());
-//        player2Die4.setIcon(rand.randomNumberDice());
-//        player2Die5.setIcon(rand.randomNumberDice());
+        player2Die1.setIcon(DicePic[0]);
+        player2Die2.setIcon(DicePic[1]);
+        player2Die3.setIcon(DicePic[2]);
+        player2Die4.setIcon(DicePic[3]);
+        player2Die5.setIcon(DicePic[4]);
 //
 //        //gets pictures of javaapplication1.dice for player3 javaapplication1.dice
-//        player3Die1.setIcon(rand.randomNumberDice());
-//        player3Die2.setIcon(rand.randomNumberDice());
-//        player3Die3.setIcon(rand.randomNumberDice());
-//        player3Die4.setIcon(rand.randomNumberDice());
-//        player3Die5.setIcon(rand.randomNumberDice());
-//
+        player3Die1.setIcon(DicePic[0]);
+        player3Die2.setIcon(DicePic[1]);
+        player3Die3.setIcon(DicePic[2]);
+        player3Die4.setIcon(DicePic[3]);
+        player3Die5.setIcon(DicePic[4]);
+
 //        //gets pictures of javaapplication1.dice for player4 javaapplication1.dice
-//        player4Die1.setIcon(rand.randomNumberDice());
-//        player4Die2.setIcon(rand.randomNumberDice());
-//        player4Die3.setIcon(rand.randomNumberDice());
-//        player4Die4.setIcon(rand.randomNumberDice());
-//        player4Die5.setIcon(rand.randomNumberDice());
+        player4Die1.setIcon(DicePic[0]);
+        player4Die2.setIcon(DicePic[1]);
+        player4Die3.setIcon(DicePic[2]);
+        player4Die4.setIcon(DicePic[3]);
+        player4Die5.setIcon(DicePic[4]);
 //
 //        //gets pictures of javaapplication1.dice for player5 javaapplication1.dice
-//        player5Die1.setIcon(rand.randomNumberDice());
-//        player5Die2.setIcon(rand.randomNumberDice());
-//        player5Die3.setIcon(rand.randomNumberDice());
-//        player5Die4.setIcon(rand.randomNumberDice());
-//        player5Die5.setIcon(rand.randomNumberDice());
-
+        player5Die1.setIcon(DicePic[0]);
+        player5Die2.setIcon(DicePic[1]);
+        player5Die3.setIcon(DicePic[2]);
+        player5Die4.setIcon(DicePic[3]);
+        player5Die5.setIcon(DicePic[4]);
     }
-
 }
