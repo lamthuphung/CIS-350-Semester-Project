@@ -1,4 +1,4 @@
-/*
+package javaapplication1;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -148,8 +148,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         System.out.println("AI [" + (i+2) + "]" + " played bid: Dice Face = [ " + lastDiceFaceAccepted + " ]\n\t\t\t\tNumber of Dice = [ " + lastNumDieAccepted + " ]");
                     }
                 }
-                else JOptionPane.showMessageDialog(null,
-                            "The dice face/The number of dice has to be greater than the previous bid");
+
 
 
                 previousBidTextDisplay.setText("Your current bid is:\n\tDice Face = [ " + diceFaceInput +
@@ -189,7 +188,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         //From lines 113 to 211 is all just setting the background color of the dice
-        player1Die1.setBackground(new java.awt.Color(255, 43, 43));
+        player1Die1.setBackground(new java.awt.Color(255, 255, 255, 0));
         player1Die1.setOpaque(true);
         player1Die1.setPreferredSize(new java.awt.Dimension(80, 80));
 
@@ -493,8 +492,7 @@ public class NewJFrame extends javax.swing.JFrame {
                                                 .addGap(37, 37, 37))))
         );
 
-        pack();
-        setVisible(true);
+
     } //end of setting up gui components
 
 
@@ -517,7 +515,7 @@ public class NewJFrame extends javax.swing.JFrame {
      * @param args
      */
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         int count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0;
 
         try {
@@ -540,13 +538,12 @@ public class NewJFrame extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewJFrame().setVisible(true);
-            }
-        });
+        NewJFrame gui = new NewJFrame();
+        Dice die = new Dice();
 
+        gui.pack();
+        gui.setVisible(true);
+        die.setDiceImage();
     }
 
 

@@ -4,6 +4,7 @@ import javax.swing.*;
 
 public class Dice extends NewJFrame{
 
+    final int[] DICENUMBERS = new int[25];
     public void dicePicture(){
 
     }
@@ -14,7 +15,7 @@ public class Dice extends NewJFrame{
      * @return - random value from 1 - 6
      */
     public Icon[] DicePhoto() {
-        Icon die = null;
+
 
         ImageIcon die1 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
                 "src\\javaapplication1\\dice\\Die1.png");
@@ -29,10 +30,10 @@ public class Dice extends NewJFrame{
         ImageIcon die6 = new ImageIcon("C:\\Users\\gavin\\IdeaProjects\\Liars Dice\\CIS-350-Semester-Project\\" +
                 "src\\javaapplication1\\dice\\Die6.png");
 
-        int[] diceNumber = getDieNumber();
+        getDieNumber();
         Icon[] picDie = new Icon[25];
         for (int i = 0; i <= 24; i++) {
-            switch (diceNumber[i]) {
+            switch (DICENUMBERS[i]) {
                 case 1 -> picDie[i] = die1;
                 case 2 -> picDie[i] = die2;
                 case 3 -> picDie[i] = die3;
@@ -47,19 +48,20 @@ public class Dice extends NewJFrame{
     public int[] getDieNumber() {
         final int DICEARRAY_SIZE = 24;
 
-        final int[] ARR = new int[25];
+
         final int[] DIECOUNT = new int[7];
 
         int min = 1;
         int max = 6;
-        int random = (int)Math.floor(Math.random()*(max-min+1)+min);
+        int random = 0;
 
         for (int i = 0; i <= DICEARRAY_SIZE; i++) {
-            ARR[i] = random;
+            random = (int)Math.floor(Math.random()*(max-min+1)+min);
+            DICENUMBERS[i] = random;
         }
 
         for (int i = 0; i <= DICEARRAY_SIZE; i++) {
-            switch (ARR[i]) {
+            switch (DICENUMBERS[i]) {
                 case 1 -> DIECOUNT[1]++;
                 case 2 -> DIECOUNT[2]++;
                 case 3 -> DIECOUNT[3]++;
@@ -128,15 +130,6 @@ public class Dice extends NewJFrame{
 //        player5Die3.setIcon(rand.randomNumberDice());
 //        player5Die4.setIcon(rand.randomNumberDice());
 //        player5Die5.setIcon(rand.randomNumberDice());
-
-    }
-    public static void main(String args[]) {
-
-        NewJFrame gui = new NewJFrame();
-
-
-
-
 
     }
 
